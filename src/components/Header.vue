@@ -14,13 +14,14 @@
     import {pca, pcaa} from 'area-data';
     import 'vue-area-linkage/dist/index.css'
     import {getGoodsList} from '../api'
+    import {getCity, setCity} from "../utils/localStorge";
     export default {
 
         name: "Header",
         components: {},
         data() {
             return {
-                selected: ["110000"],
+                selected: [],
                 pca: pca,
                 pcaa: pcaa,
                 goods: {
@@ -29,12 +30,18 @@
             }
         },
         created() {
+            this.selected.push(getCity());
         },
         methods: {
             search: function () {
                 getGoodsList(this.goods).then(res=>{
                   console.log(res.data)
                 })
+            }
+        },
+        watch:{
+            selected:function (value) {
+                setCity(value);
             }
         }
     }
