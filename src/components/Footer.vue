@@ -69,7 +69,7 @@
 
     .item-icon {
         width: 2rem;
-        height: 1.2rem;
+        height: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;

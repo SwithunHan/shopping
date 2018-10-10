@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Good from "./good";
+    import Good from "./Good";
     export default {
         name: "goodsList",
         components: {Good},
@@ -15,6 +15,6 @@
 
 <style scoped>
     .goodsList{
-        padding-bottom: 1rem;
+        padding-bottom: 2.2rem;
     }
 </style>

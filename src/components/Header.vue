@@ -51,10 +51,10 @@
     .header {
         display: flex;
         background: #06c1ae;
-        /*align-items: center;*/
         height: 40px;
-        /*padding: 4px;*/
         box-sizing: border-box;
+        position: relative;
+        z-index: 111;
     }
 
     .city {
