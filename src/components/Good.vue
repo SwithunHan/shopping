@@ -12,7 +12,8 @@
             </div>
         </div>
         <div class="lookDes">
-            <router-link :to="{name:'goodDetail',params:{id: good.id}}">查看详情</router-link>
+            <!--<router-link :to="{name:'goodDetail',params:{id: good.id,type:'post'}}">查看详情</router-link>-->
+            <router-link :to="`/goodDetail/${good.id}/post`">查看详情1</router-link>
         </div>
     </div>
 </template>

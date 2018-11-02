@@ -47,10 +47,11 @@
                     let path = this.$route.path.slice(1);
                     if (["recommend","chat","shopping","personal"].includes(path)) {
                         this.route = path
-                    } else {
+                    } else if(path===""){
                         this.route = "home"
+                    }else{
+                        this.route = ""
                     }
-
                 },
                 immediate:true
             }

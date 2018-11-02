@@ -1,28 +1,18 @@
 <template>
-    <div class="wrapper" ref="wrapper">
-        <div class="content">
-            <swiper :options="swiperOption" ref="mySwiper" class="lunbo">
-                <!-- slides -->
-                <swiper-slide v-for="(img,index) in swiperImg" :key="index">
-                    <a :href="img.href">
-                        <img :src="img.src" alt="">
-                    </a>
-                </swiper-slide>
-                <!-- Optional controls -->
-                <div class="swiper-pagination" slot="pagination"></div>
+    <data-list>
+        <swiper :options="swiperOption" ref="mySwiper" class="lunbo">
+            <!-- slides -->
+            <swiper-slide v-for="(img,index) in swiperImg" :key="index">
+                <a :href="img.href">
+                    <img :src="img.src" alt="">
+                </a>
+            </swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-pagination" slot="pagination"></div>
 
-            </swiper>
-            <item-list></item-list>
-            <GoodsList :goodsList="goodsList"></GoodsList>
-        </div>
-        <div class="loadStatus" v-show="loadStatus">
-            <span class="rotate">
-                <font-awesome-icon :icon="['fas', 'spinner']"/>
-            </span>
-            &nbsp;
-            <span>加载中...</span>
-        </div>
-    </div>
+        </swiper>
+        <item-list></item-list>
+    </data-list>
 </template>
 
 <script>
@@ -30,16 +20,15 @@
     import 'swiper/dist/css/swiper.css'
     import {swiper, swiperSlide} from 'vue-awesome-swiper'
     import ItemList from "../components/ItemList";
-    import GoodsList from "../components/GoodsList";
-    import BScroll from 'better-scroll'
+    import DataList from '../components/DataList'
 
     export default {
         name: 'home',
         components: {
-            GoodsList,
+            "data-list":DataList,
             ItemList,
             swiper,
-            swiperSlide
+            swiperSlide,
         },
         data() {
             return {
@@ -72,74 +61,6 @@
                     loop: true,
                     autoplay: true,
                 },
-                goodsList: [
-                    {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    },
-                    {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    }, {
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    },
-                ],
-                options: {
-                    click: true,
-                    pullDownRefresh: false,
-                    pullUpLoad: {
-                        threshold: -50,
-                    }
-                },
-                loadStatus: false
             }
         },
         computed: {
@@ -147,49 +68,14 @@
                 return this.$refs.mySwiper.swiper
             }
         },
-        methods: {
-            change() {
-                setTimeout(() => {
-                    //加载数据
-                    this.goodsList = this.goodsList.concat({
-                        id: Math.floor(Math.random() * 10000),
-                        img: "http://img.alicdn.com/bao/uploaded/i1/725677994/TB2.W6rdwHqK1RjSZFkXXX.WFXa_!!725677994.jpg_620x10000Q50s50.jpg_.webp",
-                        title: "维达超韧中规格抽纸",
-                        des: "120抽x24包   3层",
-                        price: "￥59.9",
-                        oldPrice: "￥66.6"
-                    },);
-                    //重新计算高度
-                    this.loadStatus = false;
-                    this.scroll.refresh();
-                    //完成上拉刷新
-                    this.scroll.finishPullUp();
-                }, 5000);
-                console.log(1111);
-            }
-        },
+        methods: {},
         mounted() {
-            this.$nextTick(() => {
-                this.scroll = new BScroll(this.$refs.wrapper, this.options);
-                //绑定上拉加载事件
-                this.scroll.on('pullingUp', () => {
-                    // this.isPullUpLoad = true
-                    // this.$emit('pullingUp')
-                    this.loadStatus = true;
-                    this.scroll.refresh();
-                    this.change();
-                });
-                console.log(this.scroll);
-            })
+
         }
 
     }
 </script>
 <style scoped>
-    .wrapper {
-        height: 100vh;
-    }
-
     .lunbo a img {
         display: inline-block;
         width: 100%;
@@ -197,28 +83,5 @@
 
     .lunbo a {
         display: inline-block;
-    }
-
-    .loadStatus {
-        position: fixed;
-        top: 40px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        color: #06c1ae;
-        font-size: 14px;
-    }
-
-    .rotate {
-        display: inline-block;
-        animation: rotateIcon 2s infinite linear;
-    }
-
-    @keyframes rotateIcon {
-        from {
-            transform: rotate(0);
-        }
-        to {
-            transform: rotate(360deg);
-        }
     }
 </style>

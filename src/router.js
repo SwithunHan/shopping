@@ -6,6 +6,7 @@ import Chat from './views/Chat'
 import Shopping from './views/Shopping'
 import Personal from './views/Personal'
 import GoodDetail from './views/GoodDetail'
+import scanning from './views/scanning'
 Vue.use(Router)
 
 export default new Router({
@@ -40,7 +41,19 @@ export default new Router({
         {
             path: '/goodDetail/:id',
             name: 'goodDetail',
-            component: GoodDetail
+            component: GoodDetail,
+            children:[
+                {
+                    path:'post',
+                    component:Home
+                }
+            ]
+        },
+        {
+
+            path:'/scanning',
+            name:'scanning',
+            component:scanning
         }
     ]
 })

@@ -4,8 +4,10 @@
         <div class="search">
             <input type="text" placeholder="商品/商品编号" @keyup.enter="search" v-model="goods.name">
         </div>
-        <div class="person">
-            <router-link to="" class="personLink"></router-link>
+        <div class="qrcode">
+            <router-link to="/scanning">
+                <font-awesome-icon :icon="['fas', 'qrcode']"/>
+            </router-link>
         </div>
     </div>
 </template>
@@ -81,20 +83,11 @@
         background: transparent;
     }
 
-    .person {
+    .qrcode {
         width: 26px;
         height: 26px;
-        border-radius: 100%;
-        background: white;
+        font-size: 24px;
         overflow: hidden;
         margin: 8px 10px 8px 10px;
-    }
-
-    .person .personLink {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: url("../assets/logo.png");
-        background-size: 100% 100%;
     }
 </style>

@@ -12,4 +12,4 @@ table { border-collapse:collapse; }
 html {overflow-y: scroll;}
 /* css common */
 .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
-.clearfix { *zoom:1; }
+.clearfix { zoom:1; }

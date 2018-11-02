@@ -15,6 +15,9 @@
 
 <style scoped>
     .goodsList{
-        padding-bottom: 2.2rem;
+        padding-bottom: 3.2rem;
+    }
+    .imgBox img {
+        width: 100%;
     }
 </style>
